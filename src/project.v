@@ -37,7 +37,7 @@ module tt_um_synth_simple_mm (
   // synth module  
        synth_module_v #(
            .nnotes(5),
-           .nswitch(8),
+           .nswitches(8),
        ) sm_i (
            .clk(clk),
            .rstn(rst_n),
