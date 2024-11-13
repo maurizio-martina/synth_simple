@@ -55,7 +55,7 @@ module wav_gen_simple_v(
    reg [( nbit_wav_in - 1 ):0] 	   swave_sin;
    reg [( nbit_wav_in - 1 ):0] 	   swave;
 
-   mem_rom_freq_tri_squ_sin rom_freq_tri_squ_sin (
+   mem_rom_freq_tri_squ_sin rom_freq_tri_squ_sin_i (
 						  .addr(per_adx_in),
 						  .clk(clk),
 						  .en(per_adx_valid_in),
@@ -63,7 +63,7 @@ module wav_gen_simple_v(
 						  .data_out(sstep_cnt_thr_tri_squ_sin)
 						  );   
 
-   mem_rom_freq_saw rom_freq_saw (
+   mem_rom_freq_saw rom_freq_saw_i (
 				  .addr(per_adx_in),
 				  .clk(clk),
 				  .en(per_adx_valid_in),
@@ -344,7 +344,7 @@ module wav_gen_simple_v(
           end
      end // always @ (  posedge clk or negedge rstn)
    
-   mem_rom_ampl_sin rom_ampl_sin (
+   mem_rom_ampl_sin rom_ampl_sin_i (
 				  .addr(smem_rom_ampl_sin_adx),
 				  .clk(clk),
 				  .en(swave_enable),
