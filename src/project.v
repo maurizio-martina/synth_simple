@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_synth_simple_maurizio-martina (
+module tt_um_synth_simple_mm (
 //module synth_simple (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
