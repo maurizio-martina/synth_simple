@@ -64,7 +64,7 @@ module mem_rom_ampl_sin (
           begin 
              if ( en == 1'b1 ) 
                begin
-                  data_out <= rom_ampl_sin[addr];			  
+		  data_out <= rom_ampl_sin[addr[4:0]];			  
                end
              else
                begin 
