@@ -251,13 +251,13 @@ module adsr_v(
      begin
         if ( rstn == 1'b0 ) 
           begin
-             scnt_step <= { 1'b0 };
+             scnt_step <= 0;
           end
         else
           begin 
              if ( ( ( ( ( sis_idle == 1'b1 ) | ( sis_sustain == 1'b1 ) ) | ( sinit_cnt_from_attack == 1'b1 ) ) | ( sinit_cnt_from_decay == 1'b1 ) ) | ( sinit_cnt_from_release == 1'b1 ) ) 
                begin
-                  scnt_step <= { 1'b0 };
+                  scnt_step <= 0;
                end
              else
                begin 
@@ -265,7 +265,7 @@ module adsr_v(
                     begin
                        if ( scnt_step_tc == 1'b1 ) 
                          begin
-                            scnt_step <= { 1'b0 };
+                            scnt_step <= 0;
                          end
                        else
                          begin 
@@ -292,13 +292,13 @@ module adsr_v(
      begin
         if ( rstn == 1'b0 ) 
           begin
-             scnt_val <= { 1'b0 };
+             scnt_val <= 0;
           end
         else
           begin 
              if ( ( sis_idle == 1'b1 ) | ( sinit_cnt_from_release == 1'b1 ) ) 
                begin
-                  scnt_val <= { 1'b0 };
+                  scnt_val <= 0;
                end
              else
                begin 
@@ -397,13 +397,13 @@ module adsr_v(
      begin
         if ( rstn == 1'b0 ) 
           begin
-             scnt_pwl <= { 1'b0 };
+             scnt_pwl <= 0;
           end
         else
           begin 
              if ( ( ( ( ( sis_idle == 1'b1 ) | ( sis_sustain == 1'b1 ) ) | ( sinit_cnt_from_attack == 1'b1 ) ) | ( sinit_cnt_from_decay == 1'b1 ) ) | ( sinit_cnt_from_release == 1'b1 ) ) 
                begin
-                  scnt_pwl <= { 1'b0 };
+                  scnt_pwl <= 0;
                end
              else
                begin 
@@ -417,7 +417,7 @@ module adsr_v(
                               end
                             else
                               begin 
-                                 scnt_pwl <= { 1'b0 };
+                                 scnt_pwl <= 0;
                               end
                          end
                     end
