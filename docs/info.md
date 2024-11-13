@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Simple monophonic synth with PWM output: 5 inputs, 8 switches to choose sounds/notes, left/right output channels
 
 ## How to test
 
-Explain how to use your project
+Connect the
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+5 IR modules to generate notes, 8 switches to choose sounds/notes, two low-pass filters to generate left/right audio signals
