@@ -433,7 +433,8 @@ module synth_module_v(
             end
         endcase
      end // always @ (  sadsr_sel)
-   
+
+	/* 
    adsr_v #(
             .nbit_data(6),
             .nbit_idx(4),
@@ -449,7 +450,8 @@ module synth_module_v(
 		      .dout(sadsr_value),
 		      .vout(sadsr_vout)
 		      );
-   
+   */
+	
    wav_gen_simple_v #(
 		      .debug_mode(0),
 		      .nbit_freq_adx(7),
@@ -460,19 +462,22 @@ module synth_module_v(
 				   .click_en_in(sclick_enable),
 				   .clk(clk),
 				   .per_adx_in(sper_adx),
-				   .per_adx_valid_in(sadsr_vout),
+				   //.per_adx_valid_in(sadsr_vout),
+	   			   .per_adx_valid_in(sper_adx_valid),
 				   .rstn(rstn),
 				   .wsel(swave_sel),
 				   .wout(ssynth_out)
 				   );
-   
+   /*
    always @ (  ssynth_out or  sadsr_value)
      begin : synth_with_adsr
         reg signed [nbit_sample+nbit_wav_in:0]tmp;
-        tmp = ( $signed(ssynth_out) * $signed({1'b0, sadsr_value}) );
+        tmp = ( $signed(ssynth_out) * $signed({1'b0, sadsr_value}) );	
         ssynth_out_adsr <= $signed(tmp[nbit_sample+nbit_wav_in-1:nbit_wav_in]);
      end
-
+   */
+   assign ssynth_out_adsr = ssynth_out;
+	
    always @ (  posedge clk or negedge rstn)
      begin
         if ( rstn == 1'b0 ) 
