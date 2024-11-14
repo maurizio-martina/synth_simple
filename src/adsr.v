@@ -24,10 +24,10 @@ module adsr_v(
    output [( nbit_data - 1 ):0] dout;
    output 			vout;
    
-   //localparam cnbit_cnt  = 28;
-   localparam cnbit_cnt  = 24;
-   //localparam [cnbit_cnt-1:0] cstep_thr0  = 28'd190;
-   localparam [cnbit_cnt-1:0] cstep_thr0  = 24'd190;	
+   localparam cnbit_cnt  = 28;
+   //localparam cnbit_cnt  = 24;
+   localparam [cnbit_cnt-1:0] cstep_thr0  = 28'd190;
+   //localparam [cnbit_cnt-1:0] cstep_thr0  = 24'd190;	
    
    localparam clog2_n_pwl  = 3;
    localparam cn_pwl  = 7;
