@@ -438,8 +438,8 @@ module synth_module_v(
    adsr_v #(
             .nbit_data(6),
             .nbit_idx(4),
-            //.max_idx(14)
-	   .max_idx(10)
+            .max_idx(14)
+	    //.max_idx(10)
             ) adsr_i (
 		      .a_t_idx(sadsr_a_t_idx),
 		      .clk(clk),
@@ -471,10 +471,9 @@ module synth_module_v(
    
    always @ (  ssynth_out or  sadsr_value)
      begin : synth_with_adsr
-        //reg signed [nbit_sample+nbit_wav_in:0]tmp;
-        //tmp = ( $signed(ssynth_out) * $signed({1'b0, sadsr_value}) );	
-        //ssynth_out_adsr <= $signed(tmp[nbit_sample+nbit_wav_in-1:nbit_wav_in]);
-	ssynth_out_adsr <= ssynth_out + {2'b0, sadsr_value};     
+        reg signed [nbit_sample+nbit_wav_in:0]tmp;
+        tmp = ( $signed(ssynth_out) * $signed({1'b0, sadsr_value}) );	
+        ssynth_out_adsr <= $signed(tmp[nbit_sample+nbit_wav_in-1:nbit_wav_in]);	
      end
    
    //assign ssynth_out_adsr = ssynth_out;
