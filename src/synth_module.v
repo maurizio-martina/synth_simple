@@ -438,7 +438,8 @@ module synth_module_v(
    adsr_v #(
             .nbit_data(6),
             .nbit_idx(4),
-            .max_idx(14)
+            //.max_idx(14)
+	   .max_idx(10)
             ) adsr_i (
 		      .a_t_idx(sadsr_a_t_idx),
 		      .clk(clk),
