@@ -12,7 +12,7 @@ module mem_rom_freq_saw (
    input [6:0] addr;
    output reg [15:0] data_out;
    
-   localparam nbit_freq_adx_tri_squ_sin = 7;
+   //localparam nbit_freq_adx_tri_squ_sin = 7;
    localparam nbit_freq_adx_saw = 7;   
    //localparam n_adx_tri_squ_sin = 2**nbit_freq_adx_tri_squ_sin;
    localparam n_adx_saw = 2**nbit_freq_adx_saw;
