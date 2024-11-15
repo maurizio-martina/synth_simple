@@ -453,11 +453,11 @@ module synth_module_v(
 		      );
 	
    wav_gen_simple_v #(
-		      .debug_mode(0),
+		      //.debug_mode(0),
 		      .nbit_freq_adx(7),
 		      .nbit_wav_in(6),
-		      .nbit_wav_out(8),
-		      .nbit_bar(4)
+		      .nbit_wav_out(8)
+		      //.nbit_bar(4)
 		      ) wav_gen_1 (
 				   .click_en_in(sclick_enable),
 				   .clk(clk),
