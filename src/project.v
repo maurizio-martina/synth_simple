@@ -23,7 +23,8 @@ module tt_um_synth_simple_mm (
   //assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+  //wire _unused = &{ena, clk, rst_n, 1'b0};
+  wire _unused = &{ena, ui_in[7:5], 1'b0};	
 
   wire [4:0] note_enn_i;
   wire pwm_out_i;
