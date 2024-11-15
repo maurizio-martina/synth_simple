@@ -65,18 +65,18 @@ module synth_module_v(
    wire [( nnotes - 1 ):0]     snote_en;
    wire [( nnotes - 1 ):0]     snote_en_one_hot;   
    wire [1:0] 		       swave_sel;
-   localparam cadsr_a_t_idx0  = 0;
-   localparam cadsr_d_t_idx0  = 0;
-   localparam cadsr_r_t_idx0  = 0;
-   localparam cadsr_a_t_idx1  = 0;
-   localparam cadsr_d_t_idx1  = 10;
-   localparam cadsr_r_t_idx1  = 0;
-   localparam cadsr_a_t_idx2  = 10;
-   localparam cadsr_d_t_idx2  = 0;
-   localparam cadsr_r_t_idx2  = 0;
-   localparam cadsr_a_t_idx3  = 10;
-   localparam cadsr_d_t_idx3  = 10;
-   localparam cadsr_r_t_idx3  = 0;
+   //localparam cadsr_a_t_idx0  = 0;
+   //localparam cadsr_d_t_idx0  = 0;
+   //localparam cadsr_r_t_idx0  = 0;
+   //localparam cadsr_a_t_idx1  = 0;
+   //localparam cadsr_d_t_idx1  = 10;
+   //localparam cadsr_r_t_idx1  = 0;
+   //localparam cadsr_a_t_idx2  = 10;
+   //localparam cadsr_d_t_idx2  = 0;
+   //localparam cadsr_r_t_idx2  = 0;
+   //localparam cadsr_a_t_idx3  = 10;
+   //localparam cadsr_d_t_idx3  = 10;
+   //localparam cadsr_r_t_idx3  = 0;
    wire [1:0] 		       sadsr_sel;
    wire [5:0] 		       sadsr_value;
    wire 		       sadsr_vout;
@@ -499,7 +499,8 @@ module synth_module_v(
    
    always @ (  scnt_pwm)
      begin
-        if ( $unsigned(scnt_pwm) == $unsigned(( 2 ** 8 ) - 1 ) ) 
+        //if ( $unsigned(scnt_pwm) == $unsigned(( 2 ** 8 ) - 1 ) ) 
+	if ( $unsigned(scnt_pwm) == $unsigned(cpwm_period) )
           begin
              scnt_pwm_tc <= 1'b1;
           end
