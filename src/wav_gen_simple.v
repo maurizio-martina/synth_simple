@@ -7,11 +7,11 @@ module wav_gen_simple_v(
 			wsel,
 			wout
 			);
-   parameter [31:0]debug_mode  = 0;
+   //parameter [31:0]debug_mode  = 0;
    parameter [31:0]nbit_freq_adx  = 7;
    parameter [31:0]nbit_wav_in  = 6;
    parameter [31:0]nbit_wav_out  = 14;
-   parameter [31:0]nbit_bar  = 4;
+   //parameter [31:0]nbit_bar  = 4;
    input clk;
    input rstn;
    input [( nbit_freq_adx - 1 ):0] per_adx_in;
@@ -20,9 +20,9 @@ module wav_gen_simple_v(
    input [1:0] 			   wsel;
    output [( nbit_wav_out - 1 ):0] wout;
    
-   localparam nbit_frac_out  = ( nbit_wav_in + 1 );
+   //localparam nbit_frac_out  = ( nbit_wav_in + 1 );
 
-   localparam nbit_freq  = 16;
+   //localparam nbit_freq  = 16;
 
    localparam [nbit_wav_in-1:0] cwave_mx  = 6'b011111;
    localparam [nbit_wav_in-1:0] cwave_mn  = 6'b100001;
@@ -50,7 +50,8 @@ module wav_gen_simple_v(
    reg [( nbit_wav_in - 1 ):0] 	   swave_tri;
    reg [( nbit_wav_in - 1 ):0] 	   swave_saw;
    reg [( nbit_wav_in - 1 ):0] 	   swave_squ;
-   reg [( nbit_wav_in - 1 ):0] 	   smem_rom_ampl_sin_adx;
+   //reg [( nbit_wav_in - 1 ):0] 	   smem_rom_ampl_sin_adx;
+   reg [( nbit_wav_in - 2 ):0] 	   smem_rom_ampl_sin_adx;	
    reg 				   smem_rom_ampl_sin_val_is_neg;
    reg [( nbit_wav_in - 1 ):0] 	   swave_sin;
    reg [( nbit_wav_in - 1 ):0] 	   swave;
@@ -324,11 +325,13 @@ module wav_gen_simple_v(
      begin
         if ( swave_cnt_tri[( nbit_wav_in - 1 )] == 1'b0 ) 
           begin
-             smem_rom_ampl_sin_adx <= swave_cnt_tri;
+	     //smem_rom_ampl_sin_adx <= swave_cnt_tri;  
+             smem_rom_ampl_sin_adx <= swave_cnt_tri[( nbit_wav_in - 2 ):0];
           end
         else
           begin 
-             smem_rom_ampl_sin_adx <= (  ~( swave_cnt_tri) + 1'b1 );
+             //smem_rom_ampl_sin_adx <= (  ~( swave_cnt_tri) + 1'b1 );
+   	     smem_rom_ampl_sin_adx <= (  ~( swave_cnt_tri[( nbit_wav_in - 2 ):0]) + 1'b1 );
           end
      end // always @ (  swave_cnt_tri)
    
