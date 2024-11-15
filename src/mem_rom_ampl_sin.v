@@ -15,8 +15,8 @@ module mem_rom_ampl_sin (
    
    localparam nbit_freq_adx_tri_squ_sin = 7;
    localparam nbit_freq_adx_saw = 7;   
-   localparam n_adx_tri_squ_sin = 2**nbit_freq_adx_tri_squ_sin;
-   localparam n_adx_saw = 2**nbit_freq_adx_saw;
+   //localparam n_adx_tri_squ_sin = 2**nbit_freq_adx_tri_squ_sin;
+   //localparam n_adx_saw = 2**nbit_freq_adx_saw;
    localparam n_val_sin = 32;   
 
    wire [5:0] 	    rom_ampl_sin[0:n_val_sin-1];
