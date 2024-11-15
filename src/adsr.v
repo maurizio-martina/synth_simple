@@ -32,7 +32,7 @@ module adsr_v(
    localparam clog2_n_pwl  = 3;
    localparam cn_pwl  = 7;
    
-   localparam cval_max  = ( ( 2 ** nbit_data ) - 1 );
+   localparam [nbit_data-1:0] cval_max  = ( ( 2 ** nbit_data ) - 1 );
    localparam cval_min  = 0;   
    
    wire 			sattack_tc;
@@ -309,7 +309,8 @@ module adsr_v(
                     begin
                        if ( scnt_step_tc == 1'b1 ) 
                          begin
-                            if ( scnt_val < $unsigned(( 2 ** nbit_data ) - 1 ) ) 
+                            //if ( scnt_val < $unsigned(( 2 ** nbit_data ) - 1 ) ) 
+			    if ( scnt_val < $unsigned(cmax_val) 				 
                               begin
                                  scnt_val <= ( scnt_val + 1'b1 );
                               end
@@ -360,7 +361,8 @@ module adsr_v(
      begin
         if ( sis_decay == 1'b1 ) 
           begin
-             if ( scnt_val == ( $unsigned( ( 2 ** nbit_data ) - 1 ) - cval_thr_v[scnt_pwl] ) ) 
+             //if ( scnt_val == ( $unsigned( ( 2 ** nbit_data ) - 1 ) - cval_thr_v[scnt_pwl] ) ) 
+		  if ( scnt_val == ( $unsigned(cmax_val) - cval_thr_v[scnt_pwl] ) ) 
                begin
                   scnt_val_tc <= 1'b1;
                end
