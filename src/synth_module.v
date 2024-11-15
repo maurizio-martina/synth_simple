@@ -14,12 +14,12 @@ module synth_module_v(
    input [( nnotes - 1 ):0]    note_enn;
    output 		       pwm_out;
    
-   localparam debug_mode  = 0;
+   //localparam debug_mode  = 0;
 
    localparam nbit_wav_in  = 6;
-   localparam nbit_bar  = 4;
-   localparam nbit_adsr_idx  = 4;
-   localparam max_adsr_idx  = 14;
+   //localparam nbit_bar  = 4;
+   //localparam nbit_adsr_idx  = 4;
+   //localparam max_adsr_idx  = 14;
    localparam nbit_sample  = 8;
    localparam nbit_notes = 7;   
    
