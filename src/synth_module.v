@@ -23,7 +23,7 @@ module synth_module_v(
    localparam nbit_sample  = 8;
    localparam nbit_notes = 7;   
    
-   localparam cpwm_period  = ( 2 ** 8 ) - 1;
+   localparam [7:0] cpwm_period  = ( 2 ** 8 ) - 1;
 
    localparam signed [7:0] cpwm_offset  = 8'd127;   
    localparam [nbit_notes-1:0] cC0  = 57;   
