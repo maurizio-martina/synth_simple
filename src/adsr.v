@@ -30,7 +30,8 @@ module adsr_v(
    //localparam [cnbit_cnt-1:0] cstep_thr0  = 24'd190;	
    
    localparam clog2_n_pwl  = 3;
-   localparam cn_pwl  = 7;
+   localparam [clog2_n_pwl-1:0] cn_pwl  = 7;
+   localparam [clog2_n_pwl-1:0] cpwl_thr = cn_pwl - 1;
    
    localparam [nbit_data-1:0] cval_max  = ( ( 2 ** nbit_data ) - 1 );
    localparam cval_min  = 0;   
@@ -54,7 +55,7 @@ module adsr_v(
    reg 				sdecay_tc;
    reg 				srelease_tc;
    reg 				scnt_val_tc;
-   reg [2:0] 			scnt_pwl;
+   reg [clog2_n_pwl-1:0] 			scnt_pwl;
    reg 				scnt_pwl_tc;
 
    wire [cnbit_cnt-1:0] 		cstep_thr0_v [0:max_idx];   
@@ -416,7 +417,8 @@ module adsr_v(
                     begin
                        if ( ( scnt_val_tc == 1'b1 ) & ( scnt_step_tc == 1'b1 ) ) 
                          begin
-                            if ( scnt_pwl < $unsigned( 7 - 1 ) ) 
+                            //if ( scnt_pwl < $unsigned( 7 - 1 ) ) 
+			    if ( scnt_pwl < $unsigned(cpwl_thr) ) 				    
                               begin
                                  scnt_pwl <= ( scnt_pwl + 1'b1 );
                               end
@@ -432,7 +434,8 @@ module adsr_v(
    
    always @ (  scnt_pwl)
      begin
-        if ( scnt_pwl == $unsigned( 7 - 1 ) ) 
+        //if ( scnt_pwl == $unsigned( 7 - 1 ) ) 
+	if ( scnt_pwl == $unsigned(cpwl_thr) ) 	     		
           begin
              scnt_pwl_tc <= 1'b1;
           end
