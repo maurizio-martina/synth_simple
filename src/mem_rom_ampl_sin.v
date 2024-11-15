@@ -9,7 +9,8 @@ module mem_rom_ampl_sin (
    input rstn;
    input clk;
    input en;
-   input [5:0] addr;
+   //input [5:0] addr;
+   input [4:0] addr;	
    output reg [5:0] data_out;
    
    localparam nbit_freq_adx_tri_squ_sin = 7;
@@ -64,7 +65,8 @@ module mem_rom_ampl_sin (
           begin 
              if ( en == 1'b1 ) 
                begin
-		  data_out <= rom_ampl_sin[addr[4:0]];			  
+		  //data_out <= rom_ampl_sin[addr[4:0]];			  
+		  data_out <= rom_ampl_sin[addr];			  
                end
              else
                begin 
