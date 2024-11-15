@@ -34,7 +34,7 @@ module adsr_v(
    localparam [clog2_n_pwl-1:0] cpwl_thr = cn_pwl - 1;
    
    localparam [nbit_data-1:0] cval_max  = ( ( 2 ** nbit_data ) - 1 );
-   localparam cval_min  = 0;   
+   //localparam cval_min  = 0;   
    
    wire 			sattack_tc;
    wire 			sinit_cnt_from_attack;
