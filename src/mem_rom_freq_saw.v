@@ -14,9 +14,9 @@ module mem_rom_freq_saw (
    
    localparam nbit_freq_adx_tri_squ_sin = 7;
    localparam nbit_freq_adx_saw = 7;   
-   localparam n_adx_tri_squ_sin = 2**nbit_freq_adx_tri_squ_sin;
+   //localparam n_adx_tri_squ_sin = 2**nbit_freq_adx_tri_squ_sin;
    localparam n_adx_saw = 2**nbit_freq_adx_saw;
-   localparam n_val_sin = 32;   
+   //localparam n_val_sin = 32;   
 
    wire [15:0] 	     rom_freq_saw[0:n_adx_saw-1];
 
