@@ -310,7 +310,7 @@ module adsr_v(
                        if ( scnt_step_tc == 1'b1 ) 
                          begin
                             //if ( scnt_val < $unsigned(( 2 ** nbit_data ) - 1 ) ) 
-			    if ( scnt_val < $unsigned(cmax_val) 				 
+				 if ( scnt_val < $unsigned(cmax_val) ) 				 
                               begin
                                  scnt_val <= ( scnt_val + 1'b1 );
                               end
@@ -362,7 +362,7 @@ module adsr_v(
         if ( sis_decay == 1'b1 ) 
           begin
              //if ( scnt_val == ( $unsigned( ( 2 ** nbit_data ) - 1 ) - cval_thr_v[scnt_pwl] ) ) 
-		  if ( scnt_val == ( $unsigned(cmax_val) - cval_thr_v[scnt_pwl] ) ) 
+		  if ( scnt_val == ( $unsigned(cmax_val) - cval_thr_v[scnt_pwl] ) )
                begin
                   scnt_val_tc <= 1'b1;
                end
