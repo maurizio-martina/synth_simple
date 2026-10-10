@@ -13,8 +13,8 @@ Simple monophonic synth with PWM output: 5 inputs, 8 switches to choose sounds/n
 
 ## How to test
 
-Connect the
+Connect inputs 0:4 to the output of 5 IR sensors, the 8 inout pins to 8 switches and the at least one of the outputs (left or right) to a low pass filter (I suggest a Sallen-Key configuration). Remove the DC at the output with an RC high pass filter and connect to a speaker.
 
 ## External hardware
 
-5 IR modules to generate notes, 8 switches to choose sounds/notes, two low-pass filters to generate left/right audio signals
+5 IR modules to generate notes, 8 switches to choose sounds/notes, two low-pass filters to generate left/right audio signals (better if 2nd order filters), two high pass filters left/right to remove the DC before going to the speaker.
